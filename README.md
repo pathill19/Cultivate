@@ -1,2 +1,2 @@
 # Cultivate
-The Cultivate app
+ID3 final project, The Cultivate app
