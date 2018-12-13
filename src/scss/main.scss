@@ -1,0 +1,252 @@
+$mobile-app-icon-bar-bg: $white;
+$mobile-app-icon-bar-icon-size: 2rem;
+
+// universal
+body{
+	font-family: Lato, sans-serif;
+	font-weight: lighter;
+}
+// end universal
+// index
+.enter{
+	background: green;
+	text-align: center;
+	.mid{
+		 position: absolute;
+		margin-top: 50%;
+		margin-left: 50%;
+	}
+	h1{
+		color: $white;
+		// margin: 50% 0;
+	}
+	button{
+		background-color: $white;
+		padding: 1rem;
+		border-radius: 5px;
+	}
+}
+// end index
+// nav
+.mobile-app-icon-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: $mobile-app-icon-bar-bg;
+  position: fixed;
+  bottom: 0;
+  overflow: auto;
+
+  button {
+    padding: 1rem;
+    cursor: pointer;
+
+    svg,
+    i,
+    img {
+    	color: green;
+     	font-size: $mobile-app-icon-bar-icon-size;
+     	max-height: $mobile-app-icon-bar-icon-size;
+    	max-width: $mobile-app-icon-bar-icon-size;
+    }
+  }
+}
+// end nav
+.straggler{
+	min-height: 4rem;
+}
+
+// camera styles
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background: url(../img/camera.png); ; /* Black fallback color */
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(0,0,0); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  button{
+  	padding: 1rem;
+  	font-size: 2rem;
+  	color: $white;
+  }
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #fcfcfc;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+// .overlay a:hover, .overlay a:focus {
+//   color: #f1f1f1;
+// }
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+// end camera styles
+
+// start index filter
+.filter-simple {
+  .button-group {
+     justify-content: center; // center the button group
+  }
+
+  .filter-simple-button.hollow {
+    &.is-active,
+    &:focus,
+    &:active {
+      background-color: $medium-gray;
+      color: $white;
+    }
+  }
+}
+
+// optional styles to round the button group edges
+.button-group.round {
+  :first-child {
+    border-radius: 5000px 0 0 5000px;
+  }
+
+  :last-child {
+    border-radius: 0 5000px 5000px 0;
+  }
+}
+
+// class that spaces blocks vertically - will be built into Foundation 6.4
+.column-block {
+  margin-bottom: 30px;
+}
+
+
+// end index filter
+
+// start favorite list
+.people-you-might-know {
+  background-color: $white;
+  padding: 1rem;
+  border: 1px solid $medium-gray;
+  // box-shadow: 0 0 rem-calc(50) rgba(0,0,0, 0.18);
+
+  // .add-people-header {
+  //   padding: 0 0.9375rem;
+  //   border-bottom: 0.0625rem solid $medium-gray;
+
+  //   .header-title {
+  //     font-weight: bold;
+  //   }
+ // }
+
+  .add-people-section {
+    margin: 1rem 0 0;
+    padding-bottom: 1rem;
+    border-bottom: 0.0625rem solid $medium-gray;
+
+    .about-people {
+      display: flex;
+      align-items: flex-start;
+
+      .about-people-avatar {
+        padding-right: 0.5rem;
+        padding-left: 0;
+
+        .avatar-image {
+          width: rem-calc(80);
+          height: rem-calc(80);
+          border-radius: 50%;
+          border: 0.0625rem solid $medium-gray;
+        }
+      }
+
+      .about-people-author {
+        flex: 1 0 0;
+
+        .author-name {
+          color: $black;
+          margin: 0.375rem 0 0;
+        }
+
+        .author-location,
+        .author-mutual {
+          color: $dark-gray;
+          margin-bottom: 0;
+          font-size: 0.85em;
+        }
+      }
+    }
+
+    .add-friend {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include breakpoint(small only) {
+        justify-content: flex-start;
+      }
+
+      .add-friend-action {
+        margin-top: 0.7rem;
+      }
+    }
+  }
+
+  .view-more-people {
+    margin: .7rem 0;
+
+    .view-more-text {
+      margin-bottom: 0;
+      text-align: center;
+
+      .view-more-link {
+        color: $primary-color;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+//end fav list
