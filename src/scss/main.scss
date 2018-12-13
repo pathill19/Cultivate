@@ -6,15 +6,25 @@ body{
 	font-family: Lato, sans-serif;
 	font-weight: lighter;
 }
+h1, h2, h3,h4,h5,h6{
+	font-family: Athene, serif;
+}
 // end universal
 // index
 .enter{
 	background: green;
 	text-align: center;
+	.midcon{
+		width: 100vw;
+		height: 100vh;
+        margin: auto;
+	}
 	.mid{
-		 position: absolute;
-		margin-top: 50%;
-		margin-left: 50%;
+		width: 100vw;
+        height: 50vh;
+        position: absolute;
+        top: 50%;
+        margin-top: -200px;
 	}
 	h1{
 		color: $white;
